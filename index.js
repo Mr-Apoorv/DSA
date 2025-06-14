@@ -1,17 +1,21 @@
-// Write a function that returns the smallest number in an array.
+// Write a function that returns the second largest number in an array.
 
-function findSmallest(arr) {
-  let smallest = Infinity;
+function secondLargest(arr) {
+  let largest = -Infinity;
+  let secondLarge = -Infinity;
 
   for (let i = 0; i < arr.length; i++) {
-    if (arr[i] < smallest) {
-      smallest = arr[i];
+    if (arr[i] > largest) {
+      secondLarge = largest;
+      largest = arr[i];
+    } else if (arr[i] > secondLarge) {
+      secondLarge = arr[i];
     }
   }
-  console.log(smallest);
-  return smallest;
+  console.log(secondLarge);
+  return secondLarge;
 }
 
-let arr = [5, 0, 7, 10, 8, 17, 1, -4, -8];
+let arr = [15, 0, 19, 10, 8, 17, 1, -4, -8];
 
-findSmallest(arr); // should return -8
+secondLargest(arr); // should return 17
