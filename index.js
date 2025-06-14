@@ -1,17 +1,17 @@
-// Write a function that returns the largest number in an array.
+// Write a function that returns the smallest number in an array.
 
-function findLargest(arr) {
-  let largest;
+function findSmallest(arr) {
+  let smallest = Infinity;
 
   for (let i = 0; i < arr.length; i++) {
-    if (largest === undefined || arr[i] > largest) {
-      largest = arr[i];
+    if (arr[i] < smallest) {
+      smallest = arr[i];
     }
   }
-  console.log(largest);
-  return largest;
+  console.log(smallest);
+  return smallest;
 }
 
-let arr = [5, 0, 7, 10, 8, 17, 1];
+let arr = [5, 0, 7, 10, 8, 17, 1, -4, -8];
 
-findLargest(arr); // should return 17
+findSmallest(arr); // should return -8
