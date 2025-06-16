@@ -1,7 +1,17 @@
-for (let i = 0; i < 3; i++) {
-  for (let j = i; j >= 0; j--) {
-    console.log(`i: ${i}, j: ${j}`);
+// This code prints a square pattern of asterisks (*) in JavaScript.
+// Example output for n = 4:
+// ****
+// ****
+// ****
+// ****
+
+let n = 4;
+for (let i = 0; i < n; i++) {
+  let row = "";
+  for (let j = 0; j < n; j++) {
+    row = row + "*";
   }
+  console.log(row);
 }
-// This code will print the values of i and j in a nested loop
-// where j goes from 0 to i for each value of i from 0 to 4.
+// This code prints a square pattern of asterisks (*) with n rows and n columns.
+// You can change the value of n to print a larger or smaller square.
