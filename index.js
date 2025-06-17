@@ -1,18 +1,19 @@
 // This code prints a square pattern of asterisks (*) in JavaScript.
-//     *
-//    **
-//   ***
-//  ****
-// *****
+// 1
+// 10
+// 101
+// 1010
+// 10101
+// 101010
 
-let n = 5;
+let n = 6;
 for (let i = 0; i < n; i++) {
   let row = "";
-  for (let j = 0; j < n; j++) {
-    if (j < n - (i + 1)) {
-      row = row + " ";
+  for (let j = 0; j <= i; j++) {
+    if (j % 2 === 1) {
+      row = row + 0;
     } else {
-      row = row + "*";
+      row = row + 1;
     }
   }
   console.log(row);
