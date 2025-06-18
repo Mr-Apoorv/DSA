@@ -1,17 +1,17 @@
-// Write a code that will return count of digits in a number.
+//Given an integer x, return true if x is a palindrome, and false otherwise.
 
-let n = 4324;
+var isPalindrome = function (x) {
+  if (x < 0) {
+    return false;
+  }
+  let rev = 0;
+  let xCopy = x;
 
-function countDigits(n) {
-    let count = 0;
+  while (x > 0) {
+    let rem = x % 10;
+    rev = 10 * rev + rem;
+    x = Math.floor(x / 10);
+  }
 
-    while (n > 0) {
-        n = Math.floor(n / 10);
-        count++;
-    }
-
-    return count;
-}
-
-let result = countDigits(n);
-console.log(result)
+  return rev === xCopy;
+};
