@@ -1,25 +1,17 @@
-// This code prints a square pattern of asterisks (*) in JavaScript.
-// 1
-// 01
-// 010
-// 1010
-// 10101
+// Write a code that will return count of digits in a number.
 
-let n = 5;
-let toggle = 1;
-for (let i = 0; i < n; i++) {
-  let row = "";
+let n = 4324;
 
-  for (let j = 0; j <= i; j++) {
-    row = row + toggle;
-    if (toggle === 1) {
-      toggle = 0;
-    } else {
-      toggle = 1;
+function countDigits(n) {
+    let count = 0;
+
+    while (n > 0) {
+        n = Math.floor(n / 10);
+        count++;
     }
-  }
-  console.log(row);
+
+    return count;
 }
 
-// This code prints a square pattern of asterisks (*) with n rows and n columns.
-// You can change the value of n to print a larger or smaller square.
+let result = countDigits(n);
+console.log(result)
