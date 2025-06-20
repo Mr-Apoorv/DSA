@@ -1,26 +1,22 @@
-//Given a signed 32-bit integer x, return x with its digits reversed. If reversing x causes the value to go outside the signed 32-bit integer range [-231, 231 - 1], then return 0.
+// LC-26 Remove Duplicates from Sorted Array
+// Given an integer array nums sorted in non-decreasing order, remove the duplicates in-place such that each unique element appears only once. The relative order of the elements should be kept the same. Then return the number of unique elements in nums.
+
+// Consider the number of unique elements of nums to be k, to get accepted, you need to do the following things:
+
+// Change the array nums such that the first k elements of nums contain the unique elements in the order they were present in nums initially. The remaining elements of nums are not important as well as the size of nums.
+// Return k.
 
 /**
- * @param {number} x
+ * @param {number[]} nums
  * @return {number}
  */
-var reverse = function (x) {
-  let xCopy = x;
-  x = Math.abs(x);
-
-  let rev = 0;
-
-  while (x > 0) {
-    last = x % 10;
-    rev = 10 * rev + last;
-
-    x = Math.floor(x / 10);
+var removeDuplicates = function (nums) {
+  let x = 0;
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] > nums[x]) {
+      x = x + 1;
+      nums[x] = nums[i];
+    }
   }
-
-  let limit = 2 ** 31;
-  if (rev < -limit || rev > limit - 1) {
-    return 0;
-  }
-
-  return xCopy < 0 ? -rev : rev;
+  return x + 1;
 };
