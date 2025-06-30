@@ -1,26 +1,24 @@
-// 485. Max Consecutive Ones
-// Given a binary array nums, return the maximum number of consecutive 1's in the array.
+// 268. Missing Number
+// Given an array nums containing n distinct numbers in the range [0, n], return the only number in the range that is missing from the array.
 
 // Example 1:
 
-// Input: nums = [1,1,0,1,1,1]
-// Output: 3
+// Input: nums = [3,0,1]
+
+// Output: 2
 
 /**
  * @param {number[]} nums
  * @return {number}
  */
-var findMaxConsecutiveOnes = function (nums) {
-  let currCount = 0;
-  let maxCount = 0;
+var missingNumber = function (nums) {
+  let n = nums.length;
+  let totalSum = (n * (n + 1)) / 2;
 
-  for (let i = 0; i < nums.length; i++) {
-    if (nums[i] === 1) {
-      currCount++;
-    } else {
-      maxCount = Math.max(currCount, maxCount);
-      currCount = 0;
-    }
+  let arrSum = 0;
+  for (let i = 0; i < n; i++) {
+    arrSum = arrSum + nums[i];
   }
-  return Math.max(currCount, maxCount);
+
+  return totalSum - arrSum;
 };
