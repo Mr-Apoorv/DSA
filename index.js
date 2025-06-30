@@ -1,24 +1,30 @@
-// 268. Missing Number
-// Given an array nums containing n distinct numbers in the range [0, n], return the only number in the range that is missing from the array.
+// 136. Single Number
+// Given a non-empty array of integers nums, every element appears twice except for one. Find that single one.
+
+// You must implement a solution with a linear runtime complexity and use only constant extra space.
 
 // Example 1:
 
-// Input: nums = [3,0,1]
+// Input: nums = [2,2,1]
 
-// Output: 2
+// Output: 1
 
 /**
  * @param {number[]} nums
  * @return {number}
  */
-var missingNumber = function (nums) {
-  let n = nums.length;
-  let totalSum = (n * (n + 1)) / 2;
-
-  let arrSum = 0;
-  for (let i = 0; i < n; i++) {
-    arrSum = arrSum + nums[i];
+var singleNumber = function (nums) {
+  let obj = {};
+  for (let i = 0; i < nums.length; i++) {
+    if (!obj[nums[i]]) {
+      obj[nums[i]] = 1;
+    } else {
+      obj[nums[i]] = obj[nums[i]] + 1;
+    }
   }
-
-  return totalSum - arrSum;
+  for (let i = 0; i < nums.length; i++) {
+    if (obj[nums[i]] === 1) {
+      return nums[i];
+    }
+  }
 };
