@@ -1,10 +1,10 @@
-// Print n to 1 using recursion
+// Print 1 to n using recursion
 
 function print(num) {
-  if (num < 1) return;
+  if (num > n) return;
 
   console.log(num);
-  print(--num);
+  print(++num);
 }
 let n = 10;
-print(n);
+print(1);
