@@ -1,22 +1,10 @@
-// 136. Single Number
-// Given a non-empty array of integers nums, every element appears twice except for one. Find that single one.
+// Print n to 1 using recursion
 
-// You must implement a solution with a linear runtime complexity and use only constant extra space.
+function print(num) {
+  if (num < 1) return;
 
-// Example 1:
-
-// Input: nums = [2,2,1]
-
-// Output: 1
-
-/**
- * @param {number[]} nums
- * @return {number}
- */
-var singleNumber = function (nums) {
-  let xor = 0;
-  for (let i = 0; i < nums.length; i++) {
-    xor = xor ^ nums[i];
-  }
-  return xor;
-};
+  console.log(num);
+  print(--num);
+}
+let n = 10;
+print(n);
