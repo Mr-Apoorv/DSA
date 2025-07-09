@@ -1,9 +1,11 @@
-// Sum 1 to n using recursion
+// Sum of all elements in an array through recursion
 
-function sum(num) {
-  if (num === 0) return 0;
+let arr = [5, 3, 2, 0, 1];
 
-  return num + sum(num - 1);
+function sum(n) {
+  if (n === 0) return arr[0];
+
+  return arr[n] + sum(n - 1);
 }
 
-console.log(sum(5));
+console.log(sum(arr.length - 1));
