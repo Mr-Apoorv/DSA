@@ -1,10 +1,9 @@
-// Print 1 to n using recursion
+// Sum 1 to n using recursion
 
-function print(num) {
-  if (num > n) return;
+function sum(num) {
+  if (num === 0) return 0;
 
-  console.log(num);
-  print(++num);
+  return num + sum(num - 1);
 }
-let n = 10;
-print(1);
+
+console.log(sum(5));
