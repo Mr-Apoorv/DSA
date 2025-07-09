@@ -1,11 +1,15 @@
-// Sum of all elements in an array through recursion
+// Sum of all odd numbers in an array through recursion
 
 let arr = [5, 3, 2, 0, 1];
 
 function sum(n) {
-  if (n === 0) return arr[0];
+  let isOdd = arr[n] % 2 !== 0;
 
-  return arr[n] + sum(n - 1);
+  if (n === 0) {
+    return isOdd ? arr[n] : 0;
+  }
+
+  return isOdd ? arr[n] + sum(n - 1) : sum(n - 1);
 }
 
 console.log(sum(arr.length - 1));
