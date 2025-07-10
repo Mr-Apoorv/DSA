@@ -1,9 +1,16 @@
-//Factorial of n using recursion
+// 231. Power of Two
 
-function factorial(n) {
-  if (n === 1) return 1;
+// Given an integer n, return true if it is a power of two. Otherwise, return false.
 
-  return n * factorial(n - 1);
-}
+// An integer n is a power of two, if there exists an integer x such that n == 2x.
 
-console.log(factorial(5));
+/**
+ * @param {number} n
+ * @return {boolean}
+ */
+var isPowerOfTwo = function (n) {
+  if (n === 1) return true;
+  if (n % 2 !== 0 || n < 1) return false;
+
+  return isPowerOfTwo(n / 2);
+};
