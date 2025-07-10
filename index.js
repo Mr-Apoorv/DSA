@@ -1,15 +1,9 @@
-// Sum of all odd numbers in an array through recursion
+//Factorial of n using recursion
 
-let arr = [5, 3, 2, 0, 1];
+function factorial(n) {
+  if (n === 1) return 1;
 
-function sum(n) {
-  let isOdd = arr[n] % 2 !== 0;
-
-  if (n === 0) {
-    return isOdd ? arr[n] : 0;
-  }
-
-  return isOdd ? arr[n] + sum(n - 1) : sum(n - 1);
+  return n * factorial(n - 1);
 }
 
-console.log(sum(arr.length - 1));
+console.log(factorial(5));
