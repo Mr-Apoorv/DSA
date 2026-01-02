@@ -1,28 +1,22 @@
-// 704. Binary Search
+//bubble sort
 
-// Given an array of integers nums which is sorted in ascending order, and an integer target, write a function to search target in nums. If target exists, then return its index. Otherwise, return -1.
+let array = [4, 9, 2, 0, 10];
 
-// You must write an algorithm with O(log n) runtime complexity.
-
-/**
- * @param {number[]} nums
- * @param {number} target
- * @return {number}
- */
-var search = function (nums, target) {
-  let left = 0;
-  let right = nums.length - 1;
-
-  while (right >= left) {
-    let middle = Math.floor((left + right) / 2);
-
-    if (nums[middle] === target) {
-      return middle;
-    } else if (nums[middle] < target) {
-      left = middle + 1;
-    } else {
-      right = middle - 1;
+function bubbleSort(array) {
+  let n = array.length;
+  for (let i = 0; i < n - 1; i++) {
+    let isSwaped = false;
+    for (let j = 0; j < n - 1 - i; j++) {
+      if (array[j] > array[j + 1]) {
+        let temp = array[j];
+        array[j] = array[j + 1];
+        array[j + 1] = temp;
+        isSwaped = true;
+      }
     }
+    if (!isSwaped) break;
   }
-  return -1;
-};
+  return array;
+}
+
+console.log(bubbleSort(array));
