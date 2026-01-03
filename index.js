@@ -1,22 +1,23 @@
-//bubble sort
+//selection sort
 
-let array = [4, 9, 2, 0, 10];
+let array = [4, 9, -10, 2, 0, 10];
 
-function bubbleSort(array) {
-  let n = array.length;
+function selectionSort(arr) {
+  let n = arr.length;
   for (let i = 0; i < n - 1; i++) {
-    let isSwaped = false;
-    for (let j = 0; j < n - 1 - i; j++) {
-      if (array[j] > array[j + 1]) {
-        let temp = array[j];
-        array[j] = array[j + 1];
-        array[j + 1] = temp;
-        isSwaped = true;
+    let min = i;
+    for (let j = i + 1; j < n; j++) {
+      if (arr[j] < arr[min]) {
+        min = j;
       }
     }
-    if (!isSwaped) break;
+    if (min != i) {
+      let temp = arr[i];
+      arr[i] = arr[min];
+      arr[min] = temp;
+    }
   }
-  return array;
+  return arr;
 }
 
-console.log(bubbleSort(array));
+console.log(selectionSort(array));
