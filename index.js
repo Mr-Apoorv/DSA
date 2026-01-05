@@ -1,23 +1,20 @@
-//selection sort
+//insertion sort
 
 let array = [4, 9, -10, 2, 0, 10];
 
-function selectionSort(arr) {
+function insertionSort(arr) {
   let n = arr.length;
-  for (let i = 0; i < n - 1; i++) {
-    let min = i;
-    for (let j = i + 1; j < n; j++) {
-      if (arr[j] < arr[min]) {
-        min = j;
-      }
+  for (let i = 1; i < n; i++) {
+    let curr = arr[i];
+    let prev = i - 1;
+
+    while (arr[prev] > curr && prev >= 0) {
+      arr[prev + 1] = arr[prev];
+      prev--;
     }
-    if (min != i) {
-      let temp = arr[i];
-      arr[i] = arr[min];
-      arr[min] = temp;
-    }
+    arr[prev + 1] = curr;
   }
   return arr;
 }
 
-console.log(selectionSort(array));
+console.log(insertionSort(array));
